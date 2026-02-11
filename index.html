@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinicile Pink - Dr. Cătălina Toader | Stomatologie Copii</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-pink': '#ec008c',
+                        'brand-dark': '#C20073',
+                        'soft-gray': '#f8f9fa',
+                    },
+                    fontFamily: {
+                        'sans': ['Open Sans', 'sans-serif'],
+                        'heading': ['Quicksand', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --promo-height: 40px;
+        }
+
+        html { scroll-behavior: smooth; }
+        .font-heading { font-family: 'Quicksand', sans-serif; }
+
+        /* Promo Bar Styles */
+        .promo-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--promo-height);
+            background: #F2B94B;
+            color: #1F2933;
+            font-weight: 400;
+            z-index: 9999;
+            padding-top: env(safe-area-inset-top);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            font-size: 15px;
+            line-height: 1.2;
+        }
+
+        .promo-desktop {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            max-width: min(1240px, 92vw);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .promo-desktop span a {
+            color: #2F80ED;
+            text-decoration: none;
+        }
+
+        .btn-promo {
+            background: #2F80ED;
+            color: white;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 15px;
+            transition: opacity 0.2s;
+        }
+
+        .btn-promo:hover,
+        .btn-promo:focus {
+            opacity: 0.8;
+        }
+
+        .promo-mobile {
+            display: none;
+            height: 100%;
+            padding: 0 10px;
+        }
+
+        .promo-mobile .promo-left,
+        .promo-mobile .promo-center,
+        .promo-mobile .promo-right {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #1F2933;
+        }
+
+        .promo-mobile .promo-right a {
+            color: #2F80ED;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .promo-desktop {
+                display: none;
+            }
+            .promo-mobile {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .promo-left {
+                flex-shrink: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .promo-center {
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+            .promo-right {
+                flex-shrink: 0;
+            }
+        }
+
+        /* Ascunde bara de scroll pentru caruselul de pe mobil */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Logica CSS pentru Dropdown-ul de Locatii pe Mobil */
+        @media (max-width: 1023px) {
+            .mobile-location-card { display: none; }
+            #locations-container[data-active="margeanului28"] #wrapper-margeanului28 { display: block; }
+            #locations-container[data-active="margeanului34"] #wrapper-margeanului34 { display: block; }
+            #locations-container[data-active="glicinelor"] #wrapper-glicinelor { display: block; }
+            #card-email { display: none; }
+        }
+
+        /* ----- CLASE PENTRU EFECTUL DE FLIP CARD 3D ----- */
+        .perspective-1000 { perspective: 1000px; }
+        .transform-style-3d { transform-style: preserve-3d; }
+        .backface-hidden { -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
+
+        /* Hero background images for mobile and desktop */
+        #acasa {
+            background-image: url('hero.jpg');
+        }
+
+        @media (min-width: 768px) {
+            #acasa {
+                background-image: url('hero-dentist.jpg');
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-700 bg-white relative" style="padding-top: calc(var(--promo-height) + env(safe-area-inset-top));">
+
+    <!-- Promo Bar -->
+    <div class="promo-bar">
+        <div class="promo-desktop">
+            <span>Concept demo • Conținut orientativ • Dezvoltat de sky.ro • <a href="mailto:dan.trifan@sky.ro">dan.trifan@sky.ro</a> • <a href="tel:+40720088880">+4 0720 088 880</a></span>
+            <a class="btn btn-promo" href="https://wa.me/40720088880">WhatsApp</a>
+        </div>
+        <div class="promo-mobile">
+            <div class="promo-left">Concept demo</div>
+            <div class="promo-center">Dezvoltat de sky.ro</div>
+            <div class="promo-right"><a href="tel:+40720088880">+4 0720 088 880</a></div>
+        </div>
+    </div>
+
+    <nav class="bg-white shadow-md sticky top-0 z-50 relative" style="top: calc(var(--promo-height) + env(safe-area-inset-top));">
+        <div class="max-w-7xl mx-auto px-6 md:px-16 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <img src="logo.png" alt="Clinicile Pink Logo" class="h-10 md:h-12 w-auto object-contain"> 
+                <span class="font-heading font-bold text-xl md:text-2xl text-brand-pink">Clinicile Pink</span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8 items-center font-semibold text-gray-600">
+                <a href="#acasa" class="hover:text-brand-pink transition">Acasă</a>
+                <a href="#despre" class="hover:text-brand-pink transition">Dr. Cătălina Toader</a>
+                <a href="#servicii" class="hover:text-brand-pink transition">Servicii</a>
+                <a href="#contact" class="hover:text-brand-pink transition">Contact</a>
+            </div>
+            
+            <a href="#contact" class="hidden md:inline-block bg-brand-pink hover:bg-brand-dark text-white font-bold py-2.5 px-6 rounded-full transition shadow-lg transform hover:-translate-y-0.5">
+                <i class="fas fa-calendar-check mr-2"></i> Programare
+            </a>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-brand-pink p-2">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 flex flex-col font-semibold text-gray-700 text-center">
+            <a href="#acasa" class="py-4 border-b border-gray-50 hover:text-brand-pink transition mobile-link">Acasă</a>
+            <a href="#despre" class="py-4 border-b border-gray-50 hover:text-brand-pink transition mobile-link">Dr. Cătălina Toader</a>
+            <a href="#servicii" class="py-4 border-b border-gray-50 hover:text-brand-pink transition mobile-link">Servicii</a>
+            <a href="#contact" class="py-4 border-b border-gray-50 hover:text-brand-pink transition mobile-link">Contact</a>
+            <a href="#contact" class="py-4 bg-brand-pink text-white mobile-link">Programare online</a>
+        </div>
+    </nav>
+
+    <header id="acasa" class="relative w-full h-[calc(100vh-80px)] min-h-[600px] bg-cover bg-center bg-no-repeat flex flex-col justify-end md:justify-center pb-12 md:pb-0">
+        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent md:bg-gradient-to-r md:from-white md:via-white/70 md:to-transparent"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-8 md:px-16 w-full">
+            <div class="md:w-3/5 lg:w-1/2 text-center md:text-left mt-auto">
+                <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 md:text-gray-800 leading-tight mb-6 md:mb-6 mb-12">
+                    Fără frică. Fără lacrimi. <br>
+                    <span class="text-brand-pink">Doar zâmbete magice.</span>
+                </h1>
+                <p class="hidden md:block text-lg text-gray-700 mb-8 leading-relaxed max-w-lg mx-0">
+                    Clinicile Pink transformă vizita la dentist într-o poveste frumoasă. Echipa noastră este specializată în lucrul cu cei mici, oferind tratamente blânde într-un mediu de basm.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="bg-brand-pink text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-brand-dark transition text-center">
+                        Vreau o programare
+                    </a>
+                    <a href="#servicii" class="bg-white text-brand-pink border-2 border-brand-pink font-bold py-3 px-8 rounded-full hover:bg-pink-50 transition text-center">
+                        Vezi serviciile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="despre" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-8 md:px-16">
+            <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+                <div class="md:w-1/2 relative">
+                    <img src="about.jpg" alt="Dr. Cătălina Toader" class="rounded-lg shadow-xl w-full object-cover h-[450px]">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                        Despre <span class="text-brand-pink">Dr. Cătălina Toader</span>
+                    </h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed text-lg">
+                        Pasiunea mea este să îi ajut pe copii să crească sănătoși și încrezători. La Clinicile Pink, nu tratăm doar dinți, ci construim relații de prietenie. Știm că fiecare copil este unic, iar răbdarea este instrumentul nostru principal.
+                    </p>
+                    <ul class="space-y-4 mb-8 text-lg">
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-brand-pink mr-3 text-xl"></i> Abordare blândă și empatică
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-brand-pink mr-3 text-xl"></i> Tehnici moderne fără durere
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <i class="fas fa-check-circle text-brand-pink mr-3 text-xl"></i> Specializare în pedodonție
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="py-20 bg-pink-50">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 text-center">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-800 mb-12">De ce ne aleg părinții și ne iubesc copiii?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border-b-4 border-brand-pink h-full flex flex-col">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-pink text-2xl">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3">Igienă și sterilizare</h3>
+                    <p class="text-gray-600">Ne preocupă în mod deosebit siguranța ta. Dispunem de echipamente moderne de sterilizare care respectă cele mai stricte norme europene.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border-b-4 border-brand-pink h-full flex flex-col">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-pink text-2xl">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3">Tehnologie de vârf</h3>
+                    <p class="text-gray-600">Cabinetul nostru este echipat cu aparatură de ultimă generație și folosește materiale premium pentru tratamente de cea mai înaltă calitate.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border-b-4 border-brand-pink h-full flex flex-col">
+                    <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-pink text-2xl">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3">Confort și empatie</h3>
+                    <p class="text-gray-600">Garantăm confortul fizic și psihic al pacienților noștri. Abordarea noastră caldă inspiră încredere și transformă vizita într-o experiență pozitivă.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicii" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto md:px-16 px-8 mb-10 text-center md:text-left">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-800">Serviciile noastre</h2>
+            <p class="text-gray-500 mt-3 text-lg">Soluții complete pentru sănătatea orală a familiei tale</p>
+        </div>
+        <div class="relative max-w-7xl mx-auto">
+            <div id="services-carousel" class="flex flex-row overflow-x-auto snap-x snap-mandatory no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-6 md:px-16 md:overflow-visible">
+                <div class="w-full flex-shrink-0 snap-center px-8 md:px-0 md:w-auto h-full">
+                    <div class="bg-white rounded-2xl shadow-lg border-b-4 border-brand-pink overflow-hidden hover:-translate-y-2 transition duration-300 h-full flex flex-col">
+                        <div class="h-48 relative bg-gray-100 flex-shrink-0">
+                            <img src="profilaxie.jpg" alt="Profilaxie" class="w-full h-full object-cover">
+                            <div class="absolute -bottom-6 left-6 w-14 h-14 bg-brand-pink text-white rounded-xl flex items-center justify-center shadow-lg text-2xl rotate-3">
+                                <i class="fas fa-tooth -rotate-3"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 md:p-8 pt-10 flex-grow">
+                            <h4 class="font-bold text-xl mb-3 text-gray-800">Profilaxie</h4>
+                            <p class="text-gray-500">Periaj profesional, fluorizare și sigilări pentru prevenirea cariilor în mod natural și blând.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex-shrink-0 snap-center px-8 md:px-0 md:w-auto h-full">
+                    <div class="bg-white rounded-2xl shadow-lg border-b-4 border-brand-pink overflow-hidden hover:-translate-y-2 transition duration-300 h-full flex flex-col">
+                        <div class="h-48 relative bg-gray-100 flex-shrink-0">
+                            <img src="carii.jpg" alt="Tratament carii" class="w-full h-full object-cover">
+                            <div class="absolute -bottom-6 left-6 w-14 h-14 bg-brand-pink text-white rounded-xl flex items-center justify-center shadow-lg text-2xl rotate-3">
+                                <i class="fas fa-heart-pulse -rotate-3"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 md:p-8 pt-10 flex-grow">
+                            <h4 class="font-bold text-xl mb-3 text-gray-800">Tratament carii</h4>
+                            <p class="text-gray-500">Obturații fizionomice de înaltă calitate și tratamente endodontice adaptate dinților de lapte.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex-shrink-0 snap-center px-8 md:px-0 md:w-auto h-full">
+                    <div class="bg-white rounded-2xl shadow-lg border-b-4 border-brand-pink overflow-hidden hover:-translate-y-2 transition duration-300 h-full flex flex-col">
+                        <div class="h-48 relative bg-gray-100 flex-shrink-0">
+                            <img src="orto.jpg" alt="Ortodonție" class="w-full h-full object-cover">
+                            <div class="absolute -bottom-6 left-6 w-14 h-14 bg-brand-pink text-white rounded-xl flex items-center justify-center shadow-lg text-2xl rotate-3">
+                                <i class="fas fa-smile -rotate-3"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 md:p-8 pt-10 flex-grow">
+                            <h4 class="font-bold text-xl mb-3 text-gray-800">Ortodonție</h4>
+                            <p class="text-gray-500">Aparate dentare mobile sau fixe colorate, perfecte pentru corectarea timpurie a mușcăturii.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full flex-shrink-0 snap-center px-8 md:px-0 md:w-auto h-full">
+                    <div onclick="openPricingModal()" class="cursor-pointer bg-brand-pink text-white rounded-2xl shadow-lg hover:-translate-y-2 transition duration-300 h-full flex flex-col items-center justify-center text-center p-8 border-b-4 border-brand-dark min-h-[350px]">
+                        <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                            <i class="fas fa-file-invoice-dollar text-4xl"></i>
+                        </div>
+                        <h4 class="font-heading font-bold text-2xl mb-3">Lista completă de prețuri</h4>
+                        <p class="text-pink-100 mb-6">Descoperă toate tarifele și serviciile noastre, atât pentru copii, cât și pentru adulți.</p>
+                        <span class="inline-block bg-white text-brand-pink font-bold py-2 px-6 rounded-full shadow-md text-sm uppercase tracking-wider">
+                            Vezi lista întreagă
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex md:hidden justify-center items-center gap-2 mt-6" id="carousel-dots">
+                <button class="w-2 h-2 rounded-full bg-brand-pink transition-all duration-300" onclick="scrollToCard(0)"></button>
+                <button class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" onclick="scrollToCard(1)"></button>
+                <button class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" onclick="scrollToCard(2)"></button>
+                <button class="w-2 h-2 rounded-full bg-gray-300 transition-all duration-300" onclick="scrollToCard(3)"></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-pink-50">
+        <div class="max-w-7xl mx-auto px-8 md:px-16">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-gray-800">Părinții ne recomandă</h2>
+                <p class="text-gray-500 mt-3 text-lg">Peste 500 de zâmbete salvate și copii fericiți</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-pink-100">
+                    <div class="flex text-yellow-400 text-sm mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Cel mai bun medic pedodont! Fetița mea plângea la orice cabinet, dar aici a intrat râzând. Recomand din tot sufletul pentru răbdarea și căldura oferite."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-brand-pink font-bold">M</div>
+                        <div>
+                            <p class="font-bold text-gray-800 text-sm">Maria Popa</p>
+                            <p class="text-gray-400 text-xs">Mămică</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block review-item bg-white p-8 rounded-2xl shadow-sm border border-pink-100">
+                    <div class="flex text-yellow-400 text-sm mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Profesionalism la superlativ! Atmosfera din clinică te face să te simți ca într-o poveste, iar tratamentul cu inhalosedare a fost salvarea noastră."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-brand-pink font-bold">A</div>
+                        <div>
+                            <p class="font-bold text-gray-800 text-sm">Andreea Ionescu</p>
+                            <p class="text-gray-400 text-xs">Mămică</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:block review-item bg-white p-8 rounded-2xl shadow-sm border border-pink-100">
+                    <div class="flex text-yellow-400 text-sm mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic">"Doamna doctor este un înger cu copiii. A explicat fiecare pas băiețelului meu, iar diploma de curaj de la final l-a făcut cel mai mândru."</p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center text-brand-pink font-bold">E</div>
+                        <div>
+                            <p class="font-bold text-gray-800 text-sm">Elena Dumitrescu</p>
+                            <p class="text-gray-400 text-xs">Mămică</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-8 md:hidden">
+                <button id="show-more-reviews" onclick="showAllReviews()" class="border-2 border-brand-pink text-brand-pink font-bold py-2.5 px-8 rounded-full hover:bg-pink-50 transition">
+                    Vezi mai multe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-gray-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-8 md:px-16">
+            
+            <div class="text-center mb-10 lg:mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Contact și locații</h2>
+                <p class="text-gray-400 text-lg mb-8">Alege locația cea mai apropiată de tine. Te așteptăm cu drag!</p>
+                
+                <div class="inline-flex flex-col md:flex-row gap-4 md:gap-8 justify-center items-center bg-gray-800 p-5 px-8 rounded-2xl border border-gray-700 shadow-lg">
+                    <div class="flex items-center text-pink-100">
+                        <i class="far fa-clock text-brand-pink text-2xl mr-3"></i>
+                        <span class="text-lg"><strong class="text-white">Luni - Vineri:</strong> 10:00 - 20:00</span>
+                    </div>
+                    <div class="hidden md:block w-px h-8 bg-gray-600"></div>
+                    <div class="flex items-center text-pink-100">
+                        <i class="far fa-calendar-alt text-brand-pink text-2xl mr-3"></i>
+                        <span class="text-lg"><strong class="text-white">Sâmbătă - Duminică:</strong> închis</span>
+                    </div>
+                </div>
+                </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
+                
+                <div class="lg:col-span-3">
+                    
+                    <div class="mb-8 block lg:hidden w-full mx-auto">
+                        <label class="block text-sm font-bold mb-2 text-gray-400">Selectează clinica:</label>
+                        <div class="relative">
+                            <select id="mobile-location-select" class="w-full border bg-gray-800 border-gray-700 text-white rounded-xl px-4 py-3.5 appearance-none focus:outline-none focus:border-brand-pink focus:ring-1 focus:ring-brand-pink transition font-semibold">
+                                <option value="margeanului28">Clinica Mărgeanului 28</option>
+                                <option value="margeanului34">Clinica Mărgeanului 34</option>
+                                <option value="glicinelor">Clinica Glicinelor</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-5 text-brand-pink">
+                                <i class="fas fa-chevron-down text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="locations-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6" data-active="margeanului28">
+                        
+                        <div id="wrapper-margeanului28" class="mobile-location-card perspective-1000 h-[320px]">
+                            <div id="flip-inner-margeanului28" class="relative w-full h-full duration-700 transform-style-3d transition-transform">
+                                <div class="absolute inset-0 w-full h-full backface-hidden bg-gray-800 p-6 rounded-2xl border border-gray-700 flex flex-col group hover:border-brand-pink transition-colors shadow-lg">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <h4 class="font-bold text-xl text-white group-hover:text-brand-pink transition">Clinica Mărgeanului 28</h4>
+                                        <i class="fas fa-clinic-medical text-brand-pink text-2xl opacity-50"></i>
+                                    </div>
+                                    <div class="flex items-start mb-3">
+                                        <i class="fas fa-map-marker-alt mt-1 mr-4 text-gray-500 group-hover:text-brand-pink transition text-lg"></i>
+                                        <p class="text-gray-300">Str. Mărgeanului nr. 28<br>Bl. M23, Ap. 3</p>
+                                    </div>
+                                    <div class="flex items-center mb-4">
+                                        <i class="fas fa-phone mr-4 text-gray-500 group-hover:text-brand-pink transition text-lg"></i>
+                                        <a href="tel:+40770924562" class="text-gray-300 hover:text-white font-bold tracking-wider">+40 770 924 562</a>
+                                    </div>
+                                    <div class="flex items-center mb-4 lg:hidden">
+                                        <i class="fas fa-envelope mr-4 text-gray-500 group-hover:text-brand-pink transition text-lg"></i>
+                                        <a href="mailto:office@clinicilepink.ro" class="text-gray-300 hover:text-white font-bold tracking-wider text-sm">office@clinicilepink.ro</a>
+                                    </div>
+                                    <button type="button" onclick="toggleFlip('margeanului28')" class="mt-auto w-full bg-gray-700 hover:bg-brand-pink text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                                        <i class="fas fa-map-marked-alt"></i> Vezi pe hartă
+                                    </button>
+                                </div>
+                                <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gray-800 rounded-2xl border-2 border-brand-pink overflow-hidden shadow-xl">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1085.9962084990977!2d26.060085742298583!3d44.409558578509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff5134f43ce3%3A0x54e4232d5026fdbb!2sClinicile%20Pink!5e1!3m2!1sro!2sro!4v1770806792085!5m2!1sro!2sro" class="absolute inset-0 w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <button type="button" onclick="toggleFlip('margeanului28')" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-pink hover:bg-brand-dark text-white font-bold py-2 px-6 rounded-full transition shadow-[0_4px_12px_rgba(236,0,140,0.6)] flex items-center justify-center gap-2 whitespace-nowrap z-10">
+                                        <i class="fas fa-undo"></i> Înapoi la info
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="wrapper-margeanului34" class="mobile-location-card perspective-1000 h-[320px]">
+                            <div id="flip-inner-margeanului34" class="relative w-full h-full duration-700 transform-style-3d transition-transform">
+                                <div class="absolute inset-0 w-full h-full backface-hidden bg-gray-800 p-6 rounded-2xl border border-gray-700 flex flex-col group hover:border-brand-pink transition-colors shadow-lg">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <h4 class="font-bold text-xl text-white group-hover:text-brand-pink transition">Clinica Mărgeanului 34</h4>
+                                        <i class="fas fa-clinic-medical text-brand-pink text-2xl opacity-50"></i>
+                                    </div>
+                                    <div class="flex items-start mb-3">
+                                        <i class="fas fa-map-marker-alt mt-1 mr-4 text-gray-500 group-hover:text-brand-pink transition text-lg"></i>
+                                        <p class="text-gray-300">Str. Mărgeanului nr. 34<br>Bl. M11, Ap. 4</p>
+                                    </div>
+                                    <div class="flex items-center mb-4">
+                                        <i class="fas fa-phone mr-4 text-gray-500 group-hover:text-brand-pink transition text-lg"></i>
+                                        <a href="tel:+40771584942" class="text-gray-300 hover:text-white font-bold tracking-wider">+40 771 584 942</a>
+                                    </div>
+                                    <div class="flex items-center mb-4 lg:hidden">
+                                        <i class="fas fa-envelope mr-4 text-gray-500 group-hover:text-brand-pink transition text-lg"></i>
+                                        <a href="mailto:office@clinicilepink.ro" class="text-gray-300 hover:text-white font-bold tracking-wider text-sm">office@clinicilepink.ro</a>
+                                    </div>
+                                    <button type="button" onclick="toggleFlip('margeanului34')" class="mt-auto w-full bg-gray-700 hover:bg-brand-pink text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                                        <i class="fas fa-map-marked-alt"></i> Vezi pe hartă
+                                    </button>
+                                </div>
+                                <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gray-800 rounded-2xl border-2 border-brand-pink overflow-hidden shadow-xl">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2582.8862413733546!2d26.057879375873643!3d44.41097597107625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ffbe451f3f91%3A0x4ce0938014857ce5!2sClinicile%20Pink%20-%20urgente%20stomatologice!5e1!3m2!1sro!2sro!4v1770806911294!5m2!1sro!2sro" class="absolute inset-0 w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <button type="button" onclick="toggleFlip('margeanului34')" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-pink hover:bg-brand-dark text-white font-bold py-2 px-6 rounded-full transition shadow-[0_4px_12px_rgba(236,0,140,0.6)] flex items-center justify-center gap-2 whitespace-nowrap z-10">
+                                        <i class="fas fa-undo"></i> Înapoi la info
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="wrapper-glicinelor" class="mobile-location-card perspective-1000 h-[320px]">
+                            <div id="flip-inner-glicinelor" class="relative w-full h-full duration-700 transform-style-3d transition-transform">
+                                <div class="absolute inset-0 w-full h-full backface-hidden bg-gray-800 p-6 rounded-2xl border border-gray-700 flex flex-col group hover:border-brand-pink transition-colors shadow-lg">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <h4 class="font-bold text-xl text-white group-hover:text-brand-pink transition">Clinica Glicinelor</h4>
+                                        <i class="fas fa-clinic-medical text-brand-pink text-2xl opacity-50"></i>
+                                    </div>
+                                    <div class="flex items-start mb-3">
+                                        <i class="fas fa-map-marker-alt mt-1 mr-4 text-gray-500 group-hover:text-brand-pink transition text-lg"></i>
+                                        <p class="text-gray-300">Str. Glicinelor nr. 8<br>Bl. M53, Ap. 5</p>
+                                    </div>
+                                    <div class="flex items-center mb-4">
+                                        <i class="fas fa-phone mr-4 text-gray-500 group-hover:text-brand-pink transition text-lg"></i>
+                                        <a href="tel:+40770751582" class="text-gray-300 hover:text-white font-bold tracking-wider">+40 770 751 582</a>
+                                    </div>
+                                    <div class="flex items-center mb-4 lg:hidden">
+                                        <i class="fas fa-envelope mr-4 text-gray-500 group-hover:text-brand-pink transition text-lg"></i>
+                                        <a href="mailto:office@clinicilepink.ro" class="text-gray-300 hover:text-white font-bold tracking-wider text-sm">office@clinicilepink.ro</a>
+                                    </div>
+                                    <button type="button" onclick="toggleFlip('glicinelor')" class="mt-auto w-full bg-gray-700 hover:bg-brand-pink text-white font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                                        <i class="fas fa-map-marked-alt"></i> Vezi pe hartă
+                                    </button>
+                                </div>
+                                <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-gray-800 rounded-2xl border-2 border-brand-pink overflow-hidden shadow-xl">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2583.0873531540165!2d26.05692227587345!3d44.406421871076354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ffa2b3ef6317%3A0xca3db76472546b0e!2sClinicile%20Pink%20-%20Stomatologie%20adulti!5e1!3m2!1sro!2sro!4v1770806863906!5m2!1sro!2sro" class="absolute inset-0 w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <button type="button" onclick="toggleFlip('glicinelor')" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-brand-pink hover:bg-brand-dark text-white font-bold py-2 px-6 rounded-full transition shadow-[0_4px_12px_rgba(236,0,140,0.6)] flex items-center justify-center gap-2 whitespace-nowrap z-10">
+                                        <i class="fas fa-undo"></i> Înapoi la info
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="card-email" class="bg-brand-pink p-6 rounded-2xl text-white flex flex-col text-center shadow-lg h-[320px]">
+                            <i class="fas fa-envelope text-5xl mb-3 opacity-90"></i>
+                            <h4 class="font-bold text-2xl mb-2">Ai o întrebare?</h4>
+                            <p class="mb-5 text-pink-100 text-sm">Scrie-ne un email și îți vom răspunde cât mai curând posibil.</p>
+                            <a href="mailto:office@clinicilepink.ro" class="mt-auto bg-white text-brand-pink font-bold py-2.5 px-6 rounded-full hover:bg-gray-100 transition shadow-md w-full sm:w-auto">office@clinicilepink.ro</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 bg-white text-gray-800 p-8 md:p-10 rounded-2xl shadow-2xl h-fit lg:h-[664px] flex flex-col">
+                    <form class="flex flex-col flex-grow">
+                        <div class="mb-5">
+                            <label class="block text-sm font-bold mb-2 text-gray-700">Locația dorită <span class="text-brand-pink">*</span></label>
+                            <div class="relative">
+                                <select id="form-location-select" class="w-full border bg-gray-50 rounded-lg px-4 py-3 appearance-none focus:outline-none focus:border-brand-pink focus:ring-1 focus:ring-brand-pink transition text-gray-800 font-semibold">
+                                    <option value="" disabled selected>Alege o clinică...</option>
+                                    <option value="margeanului28">Mărgeanului 28</option>
+                                    <option value="margeanului34">Mărgeanului 34</option>
+                                    <option value="glicinelor">Glicinelor 8</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
+                                    <i class="fas fa-chevron-down text-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <label class="block text-sm font-bold mb-2 text-gray-700">Nume părinte</label>
+                            <input type="text" class="w-full border bg-gray-50 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-pink focus:ring-1 focus:ring-brand-pink transition" placeholder="Ex: Maria Popescu">
+                        </div>
+                        <div class="mb-5">
+                            <label class="block text-sm font-bold mb-2 text-gray-700">Telefon</label>
+                            <input type="tel" class="w-full border bg-gray-50 rounded-lg px-4 py-3 focus:outline-none focus:border-brand-pink focus:ring-1 focus:ring-brand-pink transition" placeholder="07xx xxx xxx">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-bold mb-2 text-gray-700">Mesaj</label>
+                            <textarea class="w-full border bg-gray-50 rounded-lg px-4 py-3 h-28 focus:outline-none focus:border-brand-pink focus:ring-1 focus:ring-brand-pink transition" placeholder="Doresc o programare pentru copilul meu..."></textarea>
+                        </div>
+                        <button type="button" class="mt-auto w-full bg-brand-pink text-white font-bold py-4 rounded-xl text-lg hover:bg-brand-dark transition shadow-md hover:shadow-lg">
+                            Trimite mesajul
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black text-gray-500 py-10 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-8 md:px-16 flex flex-col items-center justify-center">
+            <p class="mb-4">© 2026 Clinicile Pink - Dr. Cătălina Toader. Toate drepturile rezervate.</p>
+            
+            <a href="https://sky.ro" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 hover:text-gray-300 transition-colors duration-300">
+                <span>Crafted in the clouds by</span>
+                <img src="skyro.png" alt="Sky.ro Logo" class="h-5 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+            </a>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/+40720088880" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-xl hover:bg-green-600 transition z-50 animate-bounce">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div id="pricing-modal" class="fixed inset-0 z-[60] bg-black bg-opacity-60 hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <div class="bg-white w-full max-w-4xl h-[90vh] md:h-[85vh] rounded-t-2xl md:rounded-2xl shadow-2xl flex flex-col transform translate-y-10 transition-transform duration-300 relative mt-auto md:mt-0 overflow-hidden">
+            
+            <div class="border-b border-gray-200 bg-white sticky top-0 z-20 shadow-sm flex-shrink-0">
+                <div class="p-6 md:p-8 pb-4 flex justify-between items-center">
+                    <h3 class="font-heading text-2xl md:text-3xl font-bold text-gray-800">Lista de prețuri</h3>
+                    <button onclick="closePricingModal()" class="text-gray-400 hover:text-brand-pink text-3xl transition">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-4 pb-6 px-6 bg-white">
+                    <button id="btn-copii" onclick="switchTab('copii')" class="tab-btn active w-36 md:w-40 bg-brand-pink text-white font-bold py-2.5 px-6 rounded-full shadow-md transition border-2 border-brand-pink">Copii</button>
+                    <button id="btn-adulti" onclick="switchTab('adulti')" class="tab-btn w-36 md:w-40 bg-white text-gray-600 font-bold py-2.5 px-6 rounded-full border-2 border-gray-200 hover:border-brand-pink hover:text-brand-pink transition">Adulți</button>
+                </div>
+            </div>
+
+            <div class="p-6 md:p-8 overflow-y-auto flex-grow bg-gray-50 relative">
+                
+                <div id="tab-copii" class="tab-content block space-y-10">
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">1. Profilaxie</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Aplicare desensibilizant (per dinte)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Fluorizare în cabinet</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Periaj profesional (ambele arcade)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Air flow</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Igienizare completă (detartraj, periaj, air flow)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">250 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Sigilare (per dinte)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">2. Tratament odontal</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație compozit simplă</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație compozit medie</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">250 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație compozit profundă</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație compozit injectat la cald</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație glassionomer</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">250 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Fațetare compozit</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">3. Tratament endodontic</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extirpare dinte monoradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extirpare dinte pluriradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație de canal monoradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație de canal pluriradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Tratament cu antiseptice</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Pansament calmant</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Pansament devitalizant</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Drenaj endodontic</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Dezobturat</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">4. Tratament protetic</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Gutieră albire/bruxism (per arcadă)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană provizorie PMMA</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">400 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">RCR</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Pivot fibră de sticlă</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană metalo-ceramică fizionomică</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">700 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană ceramică pe zirconiu</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană integral ceramică</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1000 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">5. Tratament chirurgical</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Drenaj abces</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extracție dinte mobil</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extracție dinte imobil</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">6. Pedodonție</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Consultație primară și status dentar</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Ședință de acomodare</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">7. Ortodonție</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Consultație primară</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Modele de studiu</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Trainer</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">800 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Disjunctor</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1700 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Aparat mobil</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1500 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Aparat metalic (pe arcadă)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">2600 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Aparat safir (pe arcadă)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">3600 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Aparat metalic estetic ICONIX (pe arcadă)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">3500 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">DAMON Q (pe arcadă)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">5300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Înlocuire bracket</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Recimentare disjunctor</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Îndepărtare aparat și contenție (ambele arcade)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Ortoimplant</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">600 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Mască Delaire</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Aparat Sparck Advanced dual Arch</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">20000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Aparat Sparck 10 Dual Arch</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">15000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Aparat Sparck 10 Single</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">10000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Gutiere contenție (per arcadă)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">500 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Contenție fixă (per arcadă)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">500 RON</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div id="tab-adulti" class="tab-content hidden space-y-10">
+                    
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">1. Profilaxie</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Aplicare desensibilizant (per dinte)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Fluorizare în cabinet</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Periaj profesional (ambele arcade)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Air flow</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Igienizare completă (detartraj, periaj, air flow)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">250 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Sigilare (per dinte)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">2. Tratament odontal</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație compozit simplă</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație compozit medie</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">250 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație compozit profundă</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">350 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație compozit injectat la cald</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">350 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație glassionomer</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">250 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Fațetare compozit</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">3. Tratament endodontic</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extirpare dinte monoradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extirpare dinte pluriradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație de canal monoradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație de canal pluriradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Tratament cu antiseptice</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Pansament calmant</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Pansament devitalizant</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Drenaj endodontic</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Dezobturat</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">4. Tratament protetic</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Ablație coroană</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană provizorie acrilat</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">RCR</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Pivot fibră de sticlă</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Reparare fațetă acrilat</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Reparare fațetă ceramică</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană metalo-ceramică semi-fizionomică</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">500 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană metalo-ceramică fizionomică</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">700 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană ceramică pe zirconiu</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană integral ceramică</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană metalo-ceramică pe implant</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">250 EUR</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Înlocuire șurubel coroană</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Strângere șurubel coroană</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană zirconiu full</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Coroană ceramică pe zirconiu pe implant</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">500 EUR</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Cimentare per dinte</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Proteză parțială/totală acrilică</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">2000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Proteză elastică</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">2600 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Gutieră albire/bruxism (per arcadă)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Proteză Kemeny (per dinte)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Proteză scheletată cu sisteme speciale</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">3500 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Înlocuire teflon (per bucată)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Căptușire/Rebazare proteză</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Înlocuire dinte/croșet în proteză</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Reparație proteză</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">5. Tratament chirurgical</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Drenaj abces</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extracție dinte monoradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extracție dinte pluriradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">250 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Molar de minte superior</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">250 - 400 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Molar de minte inferior</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 - 500 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extracție dinte inclus</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">600 - 700 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Chistectomie</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">500 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Rezecție apicală</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">500 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">6. Estetică dentară</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Albire dentară pentru acasă</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">700 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Albire dentară în cabinet</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">800 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Fațetă ceramică</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Bijuterie dentară</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">300 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">7. Parodontologie</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Chiuretaj subgingival în câmp închis (per cadran)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">400 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Imobilizare 4-6 dinți cu fibră de sticlă</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Adiție de os bovin</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">1500 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Tratament parodontopatie marginală (per ședință)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Tratament laser (per dinte)</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">8. Implantologie</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Consultație</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Implant dentar</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">500 EUR</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Descoperire implant</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Adiție de os bovin</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">2000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Adiție de membrană</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">2000 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Sinus lift</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">2000 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">9. Pedodonție</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extracție dinte temporar monoradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extracție dinte temporar pluriradicular</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Extirpare</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație de canal</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">50 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Pansament devitalizant</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Tratament antiseptic</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">150 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Sigilare</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Obturație dinte temporar</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">200 - 300 RON</span></li>
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Consultație primară</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold text-xl text-brand-pink mb-4 border-b-2 border-pink-100 pb-2">10. Ortodonție</h4>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-end"><span class="bg-gray-50 pr-2">Consultație primară</span><span class="flex-grow border-b border-dotted border-gray-300 mb-1 mx-2"></span><span class="font-bold whitespace-nowrap bg-gray-50 pl-2">100 RON</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- LOGICA MOBILE MENU ---
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if(mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                // Ascunde meniul cand dai click pe un link
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // --- LOGICA CARUSEL SERVICII ---
+            const carousel = document.getElementById('services-carousel');
+            const dots = document.querySelectorAll('#carousel-dots button');
+            if(carousel && dots.length) {
+                carousel.addEventListener('scroll', () => {
+                    const scrollPosition = carousel.scrollLeft;
+                    const cardWidth = carousel.clientWidth;
+                    const activeIndex = Math.round(scrollPosition / cardWidth);
+
+                    dots.forEach((dot, index) => {
+                        if (index === activeIndex) {
+                            dot.classList.remove('bg-gray-300');
+                            dot.classList.add('bg-brand-pink');
+                        } else {
+                            dot.classList.remove('bg-brand-pink');
+                            dot.classList.add('bg-gray-300');
+                        }
+                    });
+                });
+            }
+
+            // --- SINCRONIZARE SELECTOARE LOCATII ---
+            const mobileSelect = document.getElementById('mobile-location-select');
+            const formSelect = document.getElementById('form-location-select');
+            const locationsContainer = document.getElementById('locations-container');
+
+            if(mobileSelect && formSelect && locationsContainer) {
+                function syncLocations(selectedValue) {
+                    if(!selectedValue) return; 
+                    mobileSelect.value = selectedValue;
+                    formSelect.value = selectedValue;
+                    locationsContainer.setAttribute('data-active', selectedValue);
+                    
+                    const innerCards = document.querySelectorAll('.transform-style-3d');
+                    innerCards.forEach(card => card.classList.remove('rotate-y-180'));
+                }
+                mobileSelect.addEventListener('change', (e) => syncLocations(e.target.value));
+                formSelect.addEventListener('change', (e) => syncLocations(e.target.value));
+            }
+        });
+
+        // Functie glisare Servicii pe puncte
+        function scrollToCard(index) {
+            const carousel = document.getElementById('services-carousel');
+            const cardWidth = carousel.clientWidth;
+            carousel.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+        }
+
+        // Functie pentru Flip Card
+        function toggleFlip(cardId) {
+            const cardInner = document.getElementById(`flip-inner-${cardId}`);
+            if(cardInner) {
+                cardInner.classList.toggle('rotate-y-180');
+            }
+        }
+
+        // Functie afisare toate recenziile (Mobil)
+        function showAllReviews() {
+            const hiddenReviews = document.querySelectorAll('.review-item');
+            hiddenReviews.forEach(review => {
+                review.classList.remove('hidden');
+            });
+            document.getElementById('show-more-reviews').style.display = 'none';
+        }
+
+        // --- LOGICA MODAL PRETURI ---
+        function openPricingModal() {
+            const modal = document.getElementById('pricing-modal');
+            const modalInner = modal.querySelector('div');
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; 
+            
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalInner.classList.remove('translate-y-10');
+            }, 10);
+        }
+
+        function closePricingModal() {
+            const modal = document.getElementById('pricing-modal');
+            const modalInner = modal.querySelector('div');
+            
+            modal.classList.add('opacity-0');
+            modalInner.classList.add('translate-y-10');
+            document.body.style.overflow = 'auto'; 
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        }
+
+        function switchTab(target) {
+            const tabCopii = document.getElementById('tab-copii');
+            const tabAdulti = document.getElementById('tab-adulti');
+            const btnCopii = document.getElementById('btn-copii');
+            const btnAdulti = document.getElementById('btn-adulti');
+
+            if(target === 'copii') {
+                tabCopii.classList.remove('hidden');
+                tabCopii.classList.add('block');
+                tabAdulti.classList.remove('block');
+                tabAdulti.classList.add('hidden');
+
+                btnCopii.className = 'tab-btn active w-36 md:w-40 bg-brand-pink text-white font-bold py-2.5 px-6 rounded-full shadow-md transition border-2 border-brand-pink';
+                btnAdulti.className = 'tab-btn w-36 md:w-40 bg-white text-gray-600 font-bold py-2.5 px-6 rounded-full border-2 border-gray-200 hover:border-brand-pink hover:text-brand-pink transition';
+            } else {
+                tabAdulti.classList.remove('hidden');
+                tabAdulti.classList.add('block');
+                tabCopii.classList.remove('block');
+                tabCopii.classList.add('hidden');
+
+                btnAdulti.className = 'tab-btn active w-36 md:w-40 bg-brand-pink text-white font-bold py-2.5 px-6 rounded-full shadow-md transition border-2 border-brand-pink';
+                btnCopii.className = 'tab-btn w-36 md:w-40 bg-white text-gray-600 font-bold py-2.5 px-6 rounded-full border-2 border-gray-200 hover:border-brand-pink hover:text-brand-pink transition';
+            }
+        }
+
+        // --- PROMO BAR ANIMATIONS ---
+        // Add animation classes to elements
+        document.querySelectorAll('.section, .band, .cta-band, .footer, .promo-bar, .header, .hero').forEach(el => {
+            el.classList.add('animate-on-scroll');
+        });
+
+        // Immediate animations for top elements
+        setTimeout(() => {
+            const promoBar = document.querySelector('.promo-bar');
+            if (promoBar) {
+                promoBar.classList.add('animated');
+            }
+            const header = document.querySelector('.header');
+            if (header) {
+                header.classList.add('animated');
+            }
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.classList.add('animated');
+            }
+        }, 100);
+    </script>
+</body>
+</html>
